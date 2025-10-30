@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LeftSidebar from "@/components/LeftSidebar";
 import RightSidebar from "@/components/RightSidebar";
+import Navbar from "@/components/Navbar";
+import NavigationBar from "@/components/NavigationBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,10 +36,17 @@ export default function RootLayout({
             <LeftSidebar />
           </div>
 
-          <div className="w-full">{children}</div>
-
-          <div>
-            <RightSidebar />
+          <div className="w-full">
+            <Navbar />
+            <div className="flex justify-between gap-6 px-6">
+              <div className="border">
+                <NavigationBar/>
+              </div>
+              <div className="w-full border">{children}</div>
+              <div className="border">
+                <RightSidebar />
+              </div>
+            </div>
           </div>
         </div>
       </body>
